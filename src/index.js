@@ -8,13 +8,12 @@ const Link = require('./resolvers/Link')
 const Vote = require('./resolvers/Vote')
 const { PusherChannel } = require('graphql-pusher-subscriptions');
 
-const pubsub = new PusherChannel({
-  appId: '1046878',
-  key: '3c84229419ed7b47e5b0',
-  secret: 'e86868a98a2f052981a6',
-  cluster: 'ap2',
-  encrypted: true,
-  channel: 'my-channel'
+const pubsub = new PusherChannel({ //config object to be obtained after configuring channels on pusher
+  appId: 'YOUR_APP_ID',
+  key: 'YOUR_APP_KEY',
+  secret: 'YOUR_SECRET',
+  cluster: 'YOUR_CLUSTER',
+  channel: 'YOUR_CHANNEL'
 });
 
 
