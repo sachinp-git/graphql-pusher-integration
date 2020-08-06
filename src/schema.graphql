@@ -15,6 +15,11 @@ type Mutation {
   vote(linkId: ID!): Vote
 }
 
+type Subscription {
+  newLink: Link
+  newVote: Vote
+}
+
 type AuthPayload {
   token: String
   user: User

@@ -11,7 +11,10 @@ async function post(parent, args, context, info) {
       description: args.description,
       postedBy: { connect: { id: userId } },
     }
-  })
+  });
+
+  context.pubsub.publish("NEW_LINK", newLink);
+
   return newLink;
 }
 
@@ -67,6 +70,9 @@ async function vote(parent, args, context, info) {
       link: { connect: { id: Number(args.linkId) } },
     }
   })
+
+  context.pubsub.publish("NEW_VOTE", newVote)
+
   return newVote;
 }
 
