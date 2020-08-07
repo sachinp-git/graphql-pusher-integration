@@ -1,0 +1,59 @@
+mutation {
+post(
+    url: "http://velotio.com"
+    description: "An awesome GraphQL blog"
+  ) {
+    id
+  }
+}
+
+subscription {
+  newLink {
+      id
+      url
+      description
+      postedBy {
+        id
+        name
+        email
+      }
+  }
+}
+
+mutation {
+  post(
+    url: "www.velotio.com"
+    description: "Graphql remote schema stitching"
+  ) {
+    id
+  }
+}
+
+subscription {
+  newVote {
+    id
+    link {
+      url
+      description
+    }
+    user {
+      name
+      email
+    }
+  }
+}
+
+
+mutation {
+  vote(linkId: "__LINK_ID__") {
+    link {
+      url
+      description
+    }
+    user {
+      name
+      email
+    }
+  }
+}
+
